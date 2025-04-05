@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { NavbarComponent } from '../../../components/navbar/navbar.component';
+import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
-import { TableInvComponent } from '../components/table-inv/table-inv.component';
+import { TableInvComponent } from './components/table-inv/table-inv.component';
 
 @Component({
   selector: 'app-investments',
