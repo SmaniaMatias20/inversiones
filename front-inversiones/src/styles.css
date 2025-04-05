@@ -1,15 +1,1 @@
 @import "tailwindcss";
-
-/* styles.css o styles.scss */
-body {
-    background-color: #1a1a1a;
-    /* Fondo oscuro para el modo oscuro */
-    color: #f5f5f5;
-    /* Texto claro en el modo oscuro */
-}
-
-.app-container {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}

@@ -1,6 +1,39 @@
 <!-- home.component.html -->
 <app-navbar></app-navbar>
-<div class="container mx-auto px-4 py-8">
-    <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">Bienvenido al Home</h1>
-    <p class="text-lg text-gray-600 text-center">Este es el área de bienvenida después de iniciar sesión.</p>
-</div>
+
+<section class="flex flex-col items-center justify-center h-screen bg-gray-800 text-white">
+    <!-- Título principal -->
+    <h1 class="text-4xl font-bold mb-6">Bienvenido a tu panel de inversiones</h1>
+
+    <!-- Descripción corta -->
+    <p class="text-lg mb-12 text-center text-gray-400">Gestiona y visualiza tus inversiones de manera fácil y rápida.
+    </p>
+
+    <!-- Tarjetas con información relevante -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Inversión 1 -->
+        <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-semibold mb-4">Inversión Activa</h2>
+            <p class="text-gray-300">$12,345.67</p>
+        </div>
+
+        <!-- Inversión 2 -->
+        <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-semibold mb-4">Rentabilidad Estimada</h2>
+            <p class="text-gray-300">+7.5% anual</p>
+        </div>
+
+        <!-- Inversión 3 -->
+        <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-semibold mb-4">Próximos Pagos</h2>
+            <p class="text-gray-300">$500.00 el 15 de abril</p>
+        </div>
+    </div>
+
+    <!-- Llamado a la acción -->
+    <div class="mt-12">
+        <a href="/investments"
+            class="bg-gray-900 text-white py-2 px-6 rounded-lg text-lg hover:bg-gray-950 transition">Ver más
+            inversiones</a>
+    </div>
+</section>
