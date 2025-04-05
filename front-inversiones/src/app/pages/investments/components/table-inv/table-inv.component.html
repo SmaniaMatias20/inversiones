@@ -1,0 +1,44 @@
+<!-- Tabla de inversiones -->
+<div class="overflow-x-auto w-full max-w-6xl">
+    <table class="min-w-full bg-gray-700 rounded-lg shadow-lg">
+        <thead>
+            <tr>
+                <th class="py-3 px-6 text-left text-sm font-semibold text-gray-200">ID</th>
+                <th class="py-3 px-6 text-left text-sm font-semibold text-gray-200">Nombre</th>
+                <th class="py-3 px-6 text-left text-sm font-semibold text-gray-200">Monto</th>
+                <th class="py-3 px-6 text-left text-sm font-semibold text-gray-200">Cantidad</th>
+                <th class="py-3 px-6 text-left text-sm font-semibold text-gray-200">Alarma</th>
+                <th class="py-3 px-6 text-left text-sm font-semibold text-gray-200">Fecha</th>
+                <th class="py-3 px-6 text-left text-sm font-semibold text-gray-200">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aquí se llenan las filas con las inversiones -->
+            <tr *ngFor="let investment of investments">
+                <td class="py-3 px-6 text-sm text-gray-300">{{ investment.id }}</td>
+                <td class="py-3 px-6 text-sm text-gray-300">{{ investment.name }}</td>
+                <td class="py-3 px-6 text-sm text-gray-300">${{ investment.amount }}</td>
+                <td class="py-3 px-6 text-sm text-gray-300">{{ investment.count }}</td>
+                <td class="py-3 px-6 text-sm text-center">
+                    <span class="text-sm font-semibold {{ investment.alarma ? 'text-green-500' : 'text-red-500' }}">
+                        {{ investment.alarma ? 'Activo' : 'Inactivo' }}
+                    </span>
+                </td>
+                <td class="py-3 px-6 text-sm text-gray-300">{{ investment.date | date:'dd/MM/yyyy' }}</td>
+                <td class="py-3 px-6 text-sm space-x-2">
+                    <button (click)="editInvestment(investment.id)"
+                        class="bg-gray-900 hover:bg-gray-950 text-white px-4 py-2 rounded-md text-xs">Editar</button>
+                    <button (click)="deleteInvestment(investment.id)"
+                        class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md text-xs">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Formulario para agregar nueva inversión -->
+<div class="mt-8">
+    <button (click)="openAddInvestmentModal()"
+        class="bg-gray-900 hover:bg-gray-950 text-white py-2 px-6 rounded-lg text-lg">Agregar Inversión
+    </button>
+</div>

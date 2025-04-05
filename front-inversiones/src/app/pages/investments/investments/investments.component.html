@@ -1,1 +1,49 @@
-<p>investments works!</p>
+<app-navbar></app-navbar>
+
+<section class="flex flex-col items-center justify-center h-screen bg-gray-800 text-white">
+    <h1 class="text-4xl font-bold mb-6">Mis Inversiones</h1>
+
+    <!-- Pasar las inversiones como input al componente de la tabla -->
+    <app-table-inv [investments]="investments" (addInvestmentEvent)="openAddInvestmentModal()"
+        (removeInvestmentEvent)="deleteInvestment($event)" (editInvestmentEvent)="editInvestment($event)">
+    </app-table-inv>
+
+    <!-- Modal de formulario para agregar inversión -->
+    <div *ngIf="isAddModalOpen" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center">
+        <div class="bg-gray-900 p-6 rounded-lg shadow-lg w-96">
+            <h2 class="text-2xl text-white mb-4">Agregar Inversión</h2>
+            <form (submit)="addInvestment()">
+                <div class="mb-4">
+                    <label for="name" class="text-white block">Nombre</label>
+                    <input type="text" id="name" [(ngModel)]="newInvestment.name" name="name" required
+                        class="mt-2 p-2 w-full rounded-md bg-gray-700 text-white" />
+                </div>
+                <div class="mb-4">
+                    <label for="amount" class="text-white block">Monto</label>
+                    <input type="number" id="amount" [(ngModel)]="newInvestment.amount" name="amount" required
+                        class="mt-2 p-2 w-full rounded-md bg-gray-700 text-white" />
+                </div>
+                <div class="mb-4">
+                    <label for="count" class="text-white block">Cantidad</label>
+                    <input type="number" id="count" [(ngModel)]="newInvestment.count" name="count" required
+                        class="mt-2 p-2 w-full rounded-md bg-gray-700 text-white" />
+                </div>
+                <div class="mb-4">
+                    <label for="alarma" class="text-white block">Alarma</label>
+                    <input type="checkbox" id="alarma" [(ngModel)]="newInvestment.alarma" name="alarma" class="mt-2" />
+                </div>
+                <div class="mb-4">
+                    <label for="date" class="text-white block">Fecha</label>
+                    <input type="date" id="date" [(ngModel)]="newInvestment.date" name="date" required
+                        class="mt-2 p-2 w-full rounded-md bg-gray-700 text-white" />
+                </div>
+                <div class="flex justify-end">
+                    <button type="button" (click)="closeAddInvestmentModal()"
+                        class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md text-xs">Cancelar</button>
+                    <button type="submit"
+                        class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-xs ml-4">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
